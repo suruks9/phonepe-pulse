@@ -1,5 +1,7 @@
-This is my Phonepe pulse data visualization from 2018-2022 project
-Importing required libraries
+# This is my Phonepe pulse data  visualization from 2018-2022 project
+
+#### Importing required libraries
+```python
 import streamlit as st
 from PIL import Image
 import os
@@ -8,19 +10,26 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 import sqlite3
 import plotly.express as px
-if the module shows any error or module not found it can be overcome by using below command
+```
+#### if the module shows any error or module not found it can be overcome by using below command
+
+```python
 pip install<module name>
-In order to get the data clone the github
-Inorder to clone the github data into to working environment use below command
+```
+### In order to get the data clone the github 
+- Inorder to clone the github data into to working environment use below command
+```python
 import requests
 response = requests.get(url)
 repo = response.json()
 clone_url = repo['clone_url']
 repo_name = "pulse"
 clone_dir = os.path.join(os.getcwd(), repo_name)
-Creating csv file
-after cloning the data from github the dat in the form of json file
-In order to convert json file into data frame we use below code
+```
+### Creating csv file 
+- after cloning the data from github the dat in the form of json file
+- In order to convert json file into data frame we use below code
+```python
 clm={'State':[], 'Year':[],'Quater':[],'Transaction_type':[], 'Transaction_count':[], 'Transaction_amount':[]}
 for i in Agg_state_list:
     p_i=path+i+"/"
@@ -45,15 +54,20 @@ for i in Agg_state_list:
 
 # Successfully created a dataframe
 df_aggregated_transaction=pd.DataFrame(clm)
-After creating dataframe insert the dataframe into sql server by using sqlite3
-To Establish the connection with sql server
+```
+- After creating dataframe insert the dataframe into sql  server by using sqlite3
+- To Establish the connection with sql server
+```python
 connection = sqlite3.connect("phonepe pulse.db")
 cursor = connection.cursor()
-Create sql queries to fetch the data as per the user requirement
+```
+- Create sql queries to fetch the data as per the user requirement
+```python
 SELECT * FROM "Table"
 WHERE "Condition"
 GROUP BY "Columns"
 ORDER BY "Data"
-create the streamlit app with basic tabs Reference
-visualizing the data with plotly and streamlit
-I hope this project helps you to the understand more about phonepe
+```
+- create the streamlit app with basic tabs [Reference](https://docs.streamlit.io/library/api-reference)
+- visualizing the data with plotly and streamlit
+#### I hope this project helps you to the understand more about phonepe pulse.
